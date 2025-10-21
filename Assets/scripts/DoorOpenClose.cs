@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerPlayAnimation : MonoBehaviour
+public class DoorOpenClose : MonoBehaviour
 {
     public GameObject AnimatedObject;
-
+    [SerializeField] Animator myDoor = null;
     private Animator _animator;
 
     private void Start()
@@ -13,15 +13,45 @@ public class TriggerPlayAnimation : MonoBehaviour
         _animator = AnimatedObject.GetComponent<Animator>();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        _animator.enabled = true;
+        myDoor.Play("doorOpen", 0, 0.0f); //calls tro play open animation when trigger is interacted with
+        gameObject.SetActive(false);
     }
 
     void OnTriggerExit(Collider other)
     {
-        _animator.enabled = false;
+        myDoor.Play("doorClose", 0, 0.0f); //calls to play animation when trigger is interacted with
+        gameObject.SetActive(false);
     }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
