@@ -1,43 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 
-public class VideoTriggerScript : MonoBehaviour
+// Sam Robichaud NSCC
+
+public class TriggerSetActive2 : MonoBehaviour
 {
-    private VideoPlayer videoPlayer;
+    public GameObject targetObject;
 
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        // Get the VideoPlayer component attached to this GameObject.
-        videoPlayer = GetComponent<VideoPlayer>();
+        targetObject.SetActive(false);
     }
 
-    // Call this method to start the video.
-    public void PlayVideo()
+    void OnTriggerExit(Collider other)
     {
-        if (videoPlayer != null)
-        {
-            videoPlayer.Play();
-            Debug.Log("Video started playing.");
-        }
-    }
-
-    // Call this method to pause the video.
-    public void PauseVideo()
-    {
-        if (videoPlayer != null)
-        {
-            videoPlayer.Pause();
-            Debug.Log("Video paused.");
-        }
-    }
-
-    // Call this method to stop the video and rewind it.
-    public void StopVideo()
-    {
-        if (videoPlayer != null)
-        {
-            videoPlayer.Stop();
-            Debug.Log("Video stopped.");
-        }
+        targetObject.SetActive(true);
     }
 }
