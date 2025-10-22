@@ -10,11 +10,11 @@ public class TriggerSetActive : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        targetObject.SetActive(false);
+        targetObject.SetActive(true);
     }
 
     void OnTriggerExit(Collider other)
     {
-        targetObject.SetActive(true);
+        targetObject.SetActive(false);
     }       
 }
